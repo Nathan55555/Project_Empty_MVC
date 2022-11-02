@@ -8,7 +8,14 @@ function connecterServeurBD()
     // mot de passe de l'utilisateur pour se connecter
 
     $connect = new PDO('mysql:host='.$PARAM_hote.';port='.$PARAM_port.';dbname='.$PARAM_nom_bd, $PARAM_utilisateur,'root');
- 
-    return $connect;
+    if($connect)
+    {
+        return $connect;
+    }
+    else
+    {
+        return "non";
+    }
+    
 }
 ?>
