@@ -1,21 +1,13 @@
 <?php
-function connecterServeurBD() 
+include('includ/fonction.php');
+include('vue/navbar.php');
+$a=connecterServeurBD();
+if($a=="non")
 {
-    $PARAM_hote='localhost'; 
-    $PARAM_port='3306';
-    $PARAM_nom_bd=''; // le nom de votre base de donn�es
-    $PARAM_utilisateur='root'; // nom d'utilisateur pour se connecter
-    // mot de passe de l'utilisateur pour se connecter
-
-    $connect = new PDO('mysql:host='.$PARAM_hote.';port='.$PARAM_port.';dbname='.$PARAM_nom_bd, $PARAM_utilisateur,'root');
-    if($connect)
-    {
-        return $connect;
-    }
-    else
-    {
-        return "non";
-    }
-    
+ echo "Connexion à la bdd échouée!!";
+}
+else
+{
+        echo "Connexion à la BDD réussi!!";
 }
 ?>
